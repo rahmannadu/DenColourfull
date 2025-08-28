@@ -507,31 +507,35 @@ ul {
   display: inline-block;
   margin-top: 20px;
   background-color: #39c3b1;
-  color: white;
+  color: white !important;   /* override blue color */
   padding: 12px 24px;
   border-radius: 5px;
   font-weight: 700;
-  text-decoration: none;
+  text-decoration: none !important; /* override underline */
   transition: background-color 0.3s ease;
 }
 
 .main-button1 a:hover {
   background-color: #2a9f8e;
+  text-decoration: none; /* keep no underline on hover */
+  color: white; /* keep text white on hover */
 }
 
 .main-button2 a {
   display: inline-block;
   margin-top: 20px;
   background-color: var(--orange);
-  color: white;
+   color: white !important;   /* override blue color */
   padding: 12px 24px;
   border-radius: 5px;
   font-weight: 700;
-  text-decoration: none;
+  text-decoration: none !important; /* override underline */
   transition: background-color 0.3s ease;
 }
 
 .main-button2 a:hover {
   background-color: #f3370d;
+  text-decoration: none; /* keep no underline on hover */
+  color: white; /* keep text white on hover */
 }
 
