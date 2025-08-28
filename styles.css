@@ -11,14 +11,12 @@
   --gray-bg: #f4f6f8;
 }
 
-/* Reset & Base */
-html,
-body {
+/* === Base Layout === */
+html, body {
   margin: 0;
   padding: 0;
   background: var(--white);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: var(--ink-dark);
   line-height: 1.6;
   font-size: 18px;
@@ -27,21 +25,19 @@ body {
 img {
   max-width: 100%;
   display: block;
-  border-radius: 20px; /* Rounded corners for images */
+  border-radius: 20px;
 }
 ul {
   padding: 0;
   margin: 0;
 }
-
-/* Container */
 .wrap {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* HEADER */
+/* === Header === */
 .site-header {
   background: var(--white);
   box-shadow: 0 2px 12px rgba(22, 163, 74, 0.01);
@@ -107,81 +103,130 @@ ul {
   color: var(--green);
 }
 
-/* HERO / BANNER */
+/* === Banner & Video === */
 .main-banner {
   position: relative;
-  height: 100vh;
   width: 100%;
-  background: linear-gradient(120deg, var(--white) 0%, #ffffff 0%);
+  height: 90vh;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+#bg-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.video-dim {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(0,0,0,0.45);
+  pointer-events: none;
 }
 .video-overlay {
+  position: absolute;
+  top: 0; left: 0;
   width: 100%;
+  height: 100%;
+  z-index: 2;
   display: flex;
-  min-height: 60vh;
   align-items: center;
   justify-content: center;
-  z-index: 1;
   color: #fff;
   text-align: center;
-  padding: 0 22px;
-  background: rgba(255, 255, 255, 0.35);
-  flex-direction: column;
 }
-
+.video-overlay .caption {
+  width: 80%;
+  margin: 0 auto;
+}
 .video-overlay .caption h1 {
   font-size: 2.8rem;
+  margin: 0.5rem 0;
   font-weight: 700;
   color: #fff;
-  margin: 0 0 8px 0;
 }
-.video-overlay .caption .first-word {
-  color: var(--blue);
-}
-
-.video-overlay .caption .second-word {
-  color: var(--orange);
+.headline-gradient {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+  background: linear-gradient(90deg, #16a34a, var(--blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 .video-overlay .caption p {
   font-size: 1.2rem;
   margin-top: 14px;
   color: #e9e9e9;
 }
-.main-button a {
+
+/* === Hero Action Buttons === */
+.main-button-row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 32px;
+}
+.main-btn {
+  min-width: 230px;
+  max-width: 340px;
+  width: 100%;
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  padding: 15px 0;
+  border: none;
+  border-radius: 7px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.09);
   display: inline-block;
-  margin-top: 25px;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+}
+.medical-btn {
   background-color: var(--blue);
-  color: white;
-  padding: 12px 34px;
-  border-radius: 5px;
-  font-weight: 700;
-  text-decoration: none;
-  font-size: 1.1rem;
-  transition: background 0.3s;
+  color: #fff;
 }
-.main-button a:hover {
-  background: var(--green);
+.medical-btn:hover,
+.medical-btn:focus {
+  background-color: var(--green);
+  color: #fff;
 }
-.main-button2 a {
-  display: inline-block;
-  margin-left: 15px;
-  margin-top: 25px;
+.non-medical-btn {
   background-color: var(--orange);
-  color: white;
-  padding: 12px 34px;
-  border-radius: 5px;
-  font-weight: 700;
-  text-decoration: none;
-  font-size: 1.1rem;
-  transition: background 0.3s;
+  color: #fff;
 }
-.main-button2 a:hover {
-  background: var(--red);
+.non-medical-btn:hover,
+.non-medical-btn:focus {
+  background-color: var(--red);
+  color: #fff;
 }
 
-/* SECTION BASE */
+/* Responsive adjustments for hero buttons */
+@media (max-width: 700px) {
+  .main-button-row {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+  .main-btn {
+    min-width: 85vw;
+    max-width: 375px;
+    font-size: 1rem;
+  }
+}
+
+/* === Section Headings === */
 .section {
   padding: 64px 0 46px 0;
   text-align: center;
@@ -191,7 +236,8 @@ ul {
   background: #f9f9f9;
 }
 .section h1,
-.section h2 {
+.section h2,
+.section-heading {
   font-size: 2.15rem;
   font-weight: 700;
   margin-bottom: 28px;
@@ -202,7 +248,7 @@ ul {
   color: var(--green);
 }
 
-/* PRODUCT CAROUSEL */
+/* === Product Carousel Cards === */
 .product-carousel-section {
   background: var(--gray-bg);
   padding-top: 70px;
@@ -247,7 +293,6 @@ ul {
   width: 90%;
   margin-bottom: 28px;
 }
-/* Gradient backgrounds for Medical and Non-Medical with alternating */
 #medical .product-card-large:nth-child(odd) {
   background: linear-gradient(135deg, #16a34a 40%, #39c3b1 100%);
   color: white;
@@ -282,29 +327,18 @@ ul {
   box-shadow: 0 16px 38px rgba(243, 55, 13, 0.95);
   transform: translateY(-7px) scale(1.05);
 }
-/* Scrollbar style */
-.product-carousel::-webkit-scrollbar {
-  height: 8px;
-  background: #e5e5e5;
-}
-.product-carousel::-webkit-scrollbar-thumb {
-  background: var(--green);
-  border-radius: 8px;
-}
-/* Product images styling */
 .product-card-large img {
   width: 100%;
   max-width: 320px;
   height: 220px;
   object-fit: contain;
-  border-radius: 20px; /* Rounded corners */
+  border-radius: 20px;
   margin-top: 20px;
   margin-bottom: 16px;
   background: transparent;
   box-shadow: none;
   display: block;
 }
-/* Text styling within product-info */
 .product-info h3 {
   font-size: 1.3rem;
   font-weight: 700;
@@ -319,7 +353,103 @@ ul {
 .product-info ul li {
   margin-bottom: 8px;
 }
-/* Why Us Grid */
+
+/* === Round Image Box for Product Cards === */
+.image-box {
+  width: 210px;
+  height: 210px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 6px 24px rgba(18,90,80,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 26px auto 18px auto;
+}
+.image-box img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #fff;
+  display: block;
+}
+@media (max-width: 900px) {
+  .image-box { width: 120px; height: 120px; }
+  .image-box img { width: 88px; height: 88px; }
+}
+
+/* === Timeline Why Choose Us Section === */
+.why-timeline-section {
+  background: #fafbfc;
+  padding: 70px 0 60px 0;
+}
+.section-heading {
+  font-size: 2.6rem;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: -1px;
+  margin-bottom: 60px;
+  color: var(--ink-dark);
+}
+.why-timeline {
+  position: relative;
+  max-width: 650px;
+  margin: 0 auto;
+  border-left: 3px solid var(--green);
+  padding-left: 38px;
+}
+.why-tile {
+  position: relative;
+  margin-bottom: 44px;
+  min-height: 48px;
+}
+.why-dot {
+  position: absolute;
+  left: -27px;
+  top: 6px;
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, var(--green), var(--blue));
+  border-radius: 50%;
+  box-shadow: 0 2px 8px #0ff2;
+  border: 3px solid #fff;
+  z-index: 2;
+}
+.why-content {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(39,193,177,0.07);
+  padding: 20px 32px;
+  font-size: 1.15rem;
+  font-weight: 510;
+  color: var(--ink-dark);
+  display: block;
+  text-align: left;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.why-tile:hover .why-content {
+  box-shadow: 0 8px 32px rgba(61,195,183,0.12);
+  transform: scale(1.03);
+}
+@media (max-width: 700px) {
+  .why-timeline {
+    padding-left: 18px;
+    border-width: 2px;
+  }
+  .why-dot {
+    width: 16px; height: 16px; left: -13px;
+  }
+  .why-content {
+    font-size: 1rem;
+    padding: 14px 16px;
+  }
+}
+
+.section.alt {
+  background: #f9f9f9;
+}
+
 .why-den-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -337,7 +467,8 @@ ul {
   color: var(--ink-dark);
   font-size: 1.4em;
 }
-/* Contact Us */
+
+/* === Contact Section === */
 .contact-us h2 {
   text-align: left;
   font-size: 32px;
@@ -366,7 +497,6 @@ ul {
 .contact-method a:hover {
   text-decoration: underline;
 }
-/* Responsive */
 @media (max-width: 980px) {
   .product-card-large {
     flex: 0 0 78vw;
@@ -396,318 +526,3 @@ ul {
     font-size: 16px;
   }
 }
-
-.image-box {
-  width: 210px;
-  height: 210px;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow: 0 6px 24px rgba(18,90,80,0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 26px auto 18px auto;
-}
-
-.image-box img {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 50%;
-  background: #fff;
-  display: block;
-}
-@media (max-width: 900px) {
-  .image-box { width: 120px; height: 120px; }
-  .image-box img { width: 88px; height: 88px; }
-}
-.main-banner {
-  position: relative;
-  width: 100%;
-  height: 90vh;
-  overflow: hidden;
-}
-
-#bg-video {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0; /* Video is the background */
-}
-
-.video-overlay {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  background: rgba(0,0,0,0.35); /* Optional: darken for text readability */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.video-overlay .caption {
-  text-align: center;
-  color: #fff;
-  width: 80%;
-  margin: 0 auto;
-}
-
-.video-overlay .caption h1 {
-  font-size: 2.8rem;
-  margin: 0.5rem 0;
-}
-
-.main-button {
-  margin-top: 30px;
-}
-
-.main-button a,
-.main-button2 a {
-  text-decoration: none;
-  padding: 0.8rem 1.5rem;
-  background-color: #39c3b1;
-  color: white;
-  font-weight: bold;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-  margin: 0 10px;
-  display: inline-block;
-}
-
-.main-button a:hover {
-  background-color: #2a9f8e;
-}
-
-
-.headline-white {
-  color: #fff;
-  font-size: 1.0rem;
-  margin-bottom: 0.7rem;
-  font-weight: 300;
-}
-
-.headline-gradient {
-  font-size: 1rem;
-  font-weight: 300;
-  margin-bottom: 0.7rem;
-  background: linear-gradient(90deg, #16a34a, var(--blue));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-}
-
-/* Medical button already OK; now style Non-Medical more strongly */
-.main-button2 {
-  display: inline;
-}
-.main-button2 a {
-  background-color: var(--orange) !important;
-  color: #fff !important;
-  font-weight: 700;
-  border-radius: 5px;
-  padding: 12px 34px;
-  margin-left: 12px;
-  text-decoration: none;
-  font-size: 1.1rem;
-  transition: background 0.3s;
-  display: inline-block;
-}
-
-.main-button2 a:hover {
-  background: var(--red) !important;
-  color: #fff !important;
-}
-
-.main-banner {
-  position: relative;
-  width: 100%;
-  height: 90vh;
-  overflow: hidden;
-}
-
-#bg-video {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
-
-.video-dim {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  background: rgba(0,0,0,0.45); /* 45% black - adjust as needed */
-  pointer-events: none;
-}
-
-.video-overlay {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;  /* Above video + dim layer */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* Remove or lighten any existing background here */
-}
-.non-medical-btn {
-  background-color: var(--orange) !important;
-  color: #fff !important;
-  font-weight: 700;
-  border-radius: 5px;
-  padding: 12px 34px;
-  margin-left: 15px;
-  text-decoration: none;
-  font-size: 1.1rem;
-  transition: background 0.3s;
-  display: inline-block;
-}
-
-.non-medical-btn:hover {
-  background: var(--red) !important;
-  color: #fff !important;
-}
-
-.why-timeline-section {
-  background: #fafbfc;
-  padding: 70px 0 60px 0;
-}
-
-.section-heading {
-  font-size: 2.6rem;
-  font-weight: 800;
-  text-align: center;
-  letter-spacing: -1px;
-  margin-bottom: 60px;
-  color: var(--ink-dark);
-}
-
-/* Timeline styles */
-.why-timeline {
-  position: relative;
-  max-width: 650px;
-  margin: 0 auto;
-  border-left: 3px solid var(--green);
-  padding-left: 38px;
-}
-
-.why-tile {
-  position: relative;
-  margin-bottom: 44px;
-  min-height: 48px;
-}
-
-.why-dot {
-  position: absolute;
-  left: -27px;
-  top: 6px;
-  width: 24px;
-  height: 24px;
-  background: linear-gradient(135deg, var(--green), var(--blue));
-  border-radius: 50%;
-  box-shadow: 0 2px 8px #0ff2;
-  border: 3px solid #fff;
-  z-index: 2;
-}
-.why-content {
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 2px 16px rgba(39,193,177,0.07);
-  padding: 20px 32px;
-  font-size: 1.15rem;
-  font-weight: 510;
-  color: var(--ink-dark);
-  display: block;
-  text-align: left;
-  transition: box-shadow 0.2s, transform 0.2s;
-}
-.why-tile:hover .why-content {
-  box-shadow: 0 8px 32px rgba(61,195,183,0.12);
-  transform: scale(1.03);
-}
-
-@media (max-width: 700px) {
-  .why-timeline {
-    padding-left: 18px;
-    border-width: 2px;
-  }
-  .why-dot {
-    width: 16px; height: 16px; left: -13px;
-  }
-  .why-content {
-    font-size: 1rem;
-    padding: 14px 16px;
-  }
-}
-
-.main-button-row {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 32px;
-}
-
-.main-btn {
-  min-width: 230px;
-  max-width: 340px;
-  width: 100%;
-  text-align: center;
-  font-size: 1.15rem;
-  font-weight: 700;
-  padding: 15px 0;
-  border: none;
-  border-radius: 7px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.09);
-  display: inline-block;
-  transition: background 0.2s, color 0.2s;
-  cursor: pointer;
-  outline: none;
-}
-
-.medical-btn {
-  background-color: var(--blue);
-  color: #fff;
-}
-
-.medical-btn:hover,
-.medical-btn:focus {
-  background-color: var(--green);
-  color: #fff;
-}
-
-.non-medical-btn {
-  background-color: var(--orange);
-  color: #fff;
-}
-
-.non-medical-btn:hover,
-.non-medical-btn:focus {
-  background-color: var(--red);
-  color: #fff;
-}
-
-@media (max-width: 700px) {
-  .main-button-row {
-    flex-direction: column;
-    gap: 16px;
-    align-items: center;
-  }
-  .main-btn {
-    min-width: 85vw;
-    max-width: 375px;
-    font-size: 1rem;
-  }
-}
-
-
