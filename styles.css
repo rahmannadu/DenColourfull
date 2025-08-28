@@ -649,3 +649,64 @@ ul {
     padding: 14px 16px;
   }
 }
+
+.main-button-row {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.medical-btn, .non-medical-btn {
+  min-width: 240px;
+  padding: 15px 0;
+  border-radius: 6px;
+  font-size: 1.18rem;
+  font-weight: 700;
+  text-align: center;
+  transition: background-color 0.2s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+  display: inline-block;
+}
+
+.medical-btn {
+  background-color: var(--blue);
+  color: #fff;
+  border: none;
+}
+
+.medical-btn:hover,
+.medical-btn:focus {
+  background-color: var(--green);
+  color: #fff;
+}
+
+.non-medical-btn {
+  background-color: var(--orange);
+  color: #fff;
+  border: none;
+}
+
+.non-medical-btn:hover,
+.non-medical-btn:focus {
+  background-color: var(--red);
+  color: #fff;
+}
+
+/* MOBILE: stack vertically with spacing */
+@media (max-width: 700px) {
+  .main-button-row {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+  .medical-btn, .non-medical-btn {
+    min-width: 85vw;
+    max-width: 380px;
+    width: 100%;
+    font-size: 1.08rem;
+    padding: 15px 0;
+  }
+}
+
