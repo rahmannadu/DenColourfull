@@ -11,7 +11,7 @@
   --gray-bg: #f4f6f8;
 }
 
-/* === Base Layout === */
+/* === Reset & Base === */
 html, body {
   margin: 0;
   padding: 0;
@@ -103,7 +103,7 @@ ul {
   color: var(--green);
 }
 
-/* === Banner & Video === */
+/* === Main Banner, Video, Headings === */
 .main-banner {
   position: relative;
   width: 100%;
@@ -168,7 +168,7 @@ ul {
   color: #e9e9e9;
 }
 
-/* === Hero Action Buttons === */
+/* === Hero Buttons === */
 .main-button-row {
   display: flex;
   flex-direction: row;
@@ -211,8 +211,6 @@ ul {
   background-color: var(--red);
   color: #fff;
 }
-
-/* Responsive adjustments for hero buttons */
 @media (max-width: 700px) {
   .main-button-row {
     flex-direction: column;
@@ -444,28 +442,6 @@ ul {
     font-size: 1rem;
     padding: 14px 16px;
   }
-}
-
-.section.alt {
-  background: #f9f9f9;
-}
-
-.why-den-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px 64px;
-  margin-top: 0;
-}
-.why-den-block {
-  color: var(--ink-muted);
-  font-size: 17px;
-  margin: 0;
-}
-.why-den-block h3 {
-  margin-bottom: 12px;
-  font-weight: 700;
-  color: var(--ink-dark);
-  font-size: 1.4em;
 }
 
 /* === Contact Section === */
