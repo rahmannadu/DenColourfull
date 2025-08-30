@@ -294,13 +294,13 @@ ul {
 #medical .product-card-large:nth-child(odd) {
   /* background: linear-gradient(135deg, #16a34a 40%, #39c3b1 100%);*/
   /*color: var(--white)*/
-  color: var(--ink-dark)
+  color: var(--ink-dark);
   box-shadow: 0 8px 24px rgba(20, 100, 80, 0.6);
 }
 #medical .product-card-large:nth-child(even) {
   /*background: linear-gradient(135deg, #39c3b1 40%, #16a34a 100%);*/
   /*color: var(--white)*/
-  color: var(--ink-dark)
+  color: var(--ink-dark);
   box-shadow: 0 8px 24px rgba(20, 100, 80, 0.6);
 }
 #medical .product-card-large:hover {
@@ -312,7 +312,7 @@ ul {
 #nonmedical .product-card-large.card-red:nth-child(odd) {
   /*background: linear-gradient(135deg, #d35400 40%, #f3370d 100%);*/
   /*color: var(--white)*/
-  color: var(--ink-dark)
+  color: var(--ink-dark);
   box-shadow: 0 8px 24px rgba(211, 84, 0, 0.8);
 }
 #nonmedical .product-card-large.card-orange:nth-child(even),
@@ -320,7 +320,7 @@ ul {
 #nonmedical .product-card-large.card-red:nth-child(even) {
   /*background: linear-gradient(135deg, #f3370d 40%, #d35400 100%);*/
   /*color: var(--white)*/
-  color: var(--ink-dark)
+  color: var(--ink-dark);
   box-shadow: 0 8px 24px rgba(243, 55, 13, 0.8);
 }
 #nonmedical .product-card-large.card-orange:hover,
