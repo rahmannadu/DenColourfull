@@ -359,8 +359,8 @@ ul {
 /* === Round Image Box for Product Cards === */
 
 .image-box {
-  width: 270px;      /* Was 210px */
-  height: 270px;     /* Was 210px */
+  width: 270px;
+  height: 270px;
   background: #f4f6f8;
   border-radius: 50%;
   box-shadow: 0 10px 24px rgba(18,90,80,0.13);
@@ -368,21 +368,37 @@ ul {
   align-items: center;
   justify-content: center;
   margin: 32px auto 22px auto;
-  overflow: hidden;  /* Ensures no image overflow outside circle */
+  overflow: hidden;
+  aspect-ratio: 1 / 1;              /* Ensures perfect square/circle at all screen sizes */
+  max-width: 90vw;                  /* Prevents overflow on small screens */
 }
-
 .image-box img {
   width: 100%;
   height: 100%;
-  object-fit: cover;         /* Fully fill the circle */
+  object-fit: cover;
   border-radius: 50%;
   background: #f4f6f8;
   display: block;
-  box-shadow: none;
 }
 @media (max-width: 900px) {
-  .image-box { width: 160px; height: 160px; }
-  .image-box img { width: 100%; height: 100%; }
+  .image-box {
+    width: 160px;
+    height: 160px;
+    aspect-ratio: 1 / 1;
+    max-width: 65vw;
+  }
+  .image-box img {
+    width: 100%;
+    height: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .image-box {
+    width: 120px;
+    height: 120px;
+    aspect-ratio: 1 / 1;
+    max-width: 90vw;
+  }
 }
 
 
