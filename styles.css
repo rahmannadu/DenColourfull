@@ -561,7 +561,7 @@ ul {
 .contact-section h2 {
   font-size: 2.2rem;
   margin-bottom: 30px;
-  color: var(--Black);
+  color: var(--ink-dark);
   font-weight: 800;
   letter-spacing: -1px;
   text-align: center;
