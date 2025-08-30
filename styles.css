@@ -369,17 +369,20 @@ ul {
   justify-content: center;
   margin: 32px auto 22px auto;
   overflow: hidden;
-  aspect-ratio: 1 / 1;              /* Ensures perfect square/circle at all screen sizes */
-  max-width: 90vw;                  /* Prevents overflow on small screens */
+  aspect-ratio: 1 / 1;
+  max-width: 95vw;        /* Prevents overflow on small screens */
+  min-width: 0;
 }
+
 .image-box img {
-  width: 100%;
+  width: 100%;            /* Always fill the .image-box */
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;      /* Image fills the circle and is always centered */
   border-radius: 50%;
   background: #f4f6f8;
   display: block;
 }
+
 @media (max-width: 900px) {
   .image-box {
     width: 160px;
@@ -392,12 +395,13 @@ ul {
     height: 100%;
   }
 }
+
 @media (max-width: 480px) {
   .image-box {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     aspect-ratio: 1 / 1;
-    max-width: 90vw;
+    max-width: 85vw;
   }
 }
 
