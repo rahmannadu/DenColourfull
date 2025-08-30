@@ -357,29 +357,34 @@ ul {
 }
 
 /* === Round Image Box for Product Cards === */
+
 .image-box {
-  width: 210px;
-  height: 210px;
-  background: #fff;
+  width: 270px;      /* Was 210px */
+  height: 270px;     /* Was 210px */
+  background: #f4f6f8;
   border-radius: 50%;
-  box-shadow: 0 6px 24px rgba(18,90,80,0.08);
+  box-shadow: 0 10px 24px rgba(18,90,80,0.13);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 26px auto 18px auto;
+  margin: 32px auto 22px auto;
+  overflow: hidden;  /* Ensures no image overflow outside circle */
 }
+
 .image-box img {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* Fully fill the circle */
   border-radius: 50%;
-  background: #fff;
+  background: #f4f6f8;
   display: block;
+  box-shadow: none;
 }
 @media (max-width: 900px) {
-  .image-box { width: 120px; height: 120px; }
-  .image-box img { width: 88px; height: 88px; }
+  .image-box { width: 160px; height: 160px; }
+  .image-box img { width: 100%; height: 100%; }
 }
+
 
 /* === Timeline Why Choose Us Section === */
 .why-timeline-section {
